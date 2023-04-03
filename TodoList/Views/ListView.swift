@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ListView: View {
+    // MARK: Stored properties
     
-    // MARK: Computed Properties
+    // The list of items to be completed
+    @State var todoItems: [TodoItem] = existingTodoItems
+    
+    //The item currently being added
+    @State var newItemDescription: String = " "
+    
+    // MARK: Computed properties
     var body: some View {
         
         NavigationView {
@@ -21,6 +28,20 @@ struct ListView: View {
                     TextField("Enter a to-do item", text: Binding.constant(""))
                     
                     Button(action: {
+                        // Get last todo item id
+                        let lastId = todoItems.last!.id
+                        
+                        //Create new tpodo item
+                        let newId = lastId + 1
+                        
+                        //Create the new todo item
+                        let newTodoItem = TodoItem(id: newId, description: newItemDescription, completed: false)
+                        
+                        // Add the new todo item id
+                        todoItems.append(newTodoItem)
+                        
+                        // Clear the input field
+                        newItemDescription = ""
                         
                     }, label: {
                         Text("ADD")
