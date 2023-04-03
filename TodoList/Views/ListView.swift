@@ -30,9 +30,10 @@ struct ListView: View {
                 }
                 .padding(20)
                 
-                List {
+                List(existingTodoItems) { currentItem in
+                    
                 }
-                Text("Hello, world!")
+                
             }
         }
     }
