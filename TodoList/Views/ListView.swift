@@ -8,13 +8,38 @@
 import SwiftUI
 
 struct ListView: View {
+    
+    // MARK: Computed Properties
     var body: some View {
-        Text("Hello, world!")
+        
+        NavigationView {
+            
+            VStack {
+                
+                HStack {
+                    
+                    TextField("Enter a to-do item", text: Binding.constant(""))
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("ADD")
+                            .font(.caption)
+                    })
+                    
+                }
+                .padding(20)
+                
+                List {
+                }
+                Text("Hello, world!")
+            }
+        }
     }
-}
-
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView()
+    
+    struct ListView_Previews: PreviewProvider {
+        static var previews: some View {
+            ListView()
+        }
     }
 }
