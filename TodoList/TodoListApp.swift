@@ -12,6 +12,8 @@ struct TodoListApp: App {
     var body: some Scene {
         WindowGroup {
             ListView()
+                // Make the database available to all other views through the environment
+                .environment(\.blackbirdDatabase, AppDatabase.instance)
         }
     }
 }

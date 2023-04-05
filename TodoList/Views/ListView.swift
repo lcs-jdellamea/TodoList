@@ -5,13 +5,15 @@
 //  Created by Jack Dellamea on 4/3/23.
 //
 
+import Blackbird
 import SwiftUI
 
 struct ListView: View {
     
     // MARK: Stored properties
+   
     // The list of items to be completed
-    @State var todoItems: [TodoItem] = existingTodoItems
+    @BlackbirdLiveModels({ db in try await TodoItem.read(from: db)}) var todoItems
     
     //The item currently being added
     @State var newItemDescription: String = " "
