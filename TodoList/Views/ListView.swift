@@ -12,6 +12,9 @@ struct ListView: View {
     
     // MARK: Stored properties
    
+    // Access the connection to the database (needed to add a new record)
+    @Environment(\.blackbirdDatabase) var db: Blackbird.Database?
+    
     // The list of items to be completed
     @BlackbirdLiveModels({ db in try await TodoItem.read(from: db)}) var todoItems
     
@@ -30,20 +33,15 @@ struct ListView: View {
                     TextField("Enter a to-do item", text: Binding.constant(""))
                     
                     Button(action: {
-//                        // Get last todo item id
-//                        let lastId = todoItems.last!.id
-//
-//                        //Create new tpodo item
-//                        let newId = lastId + 1
-//
-//                        //Create the new todo item
-//                        let newTodoItem = TodoItem(id: newId, description: newItemDescription, completed: false)
-//
-//                        // Add the new todo item id
-//                        todoItems.append(newTodoItem)
-//
-//                        // Clear the input field
-//                        newItemDescription = ""
+                        Task {
+                            // Write to database
+                            try await db!.transaction { core in
+                                try core.query("INSERT INTO TodoItem (description) VALUES (?)", newItemDescription)
+                            }
+                            
+                            // Clear the input field
+                            newItemDescription = ""
+                        }
                         
                     }, label: {
                         Text("ADD")
