@@ -30,20 +30,20 @@ struct ListView: View {
                     TextField("Enter a to-do item", text: Binding.constant(""))
                     
                     Button(action: {
-                        // Get last todo item id
-                        let lastId = todoItems.last!.id
-                        
-                        //Create new tpodo item
-                        let newId = lastId + 1
-                        
-                        //Create the new todo item
-                        let newTodoItem = TodoItem(id: newId, description: newItemDescription, completed: false)
-                        
-                        // Add the new todo item id
-                        todoItems.append(newTodoItem)
-                        
-                        // Clear the input field
-                        newItemDescription = ""
+//                        // Get last todo item id
+//                        let lastId = todoItems.last!.id
+//
+//                        //Create new tpodo item
+//                        let newId = lastId + 1
+//
+//                        //Create the new todo item
+//                        let newTodoItem = TodoItem(id: newId, description: newItemDescription, completed: false)
+//
+//                        // Add the new todo item id
+//                        todoItems.append(newTodoItem)
+//
+//                        // Clear the input field
+//                        newItemDescription = ""
                         
                     }, label: {
                         Text("ADD")
@@ -53,7 +53,7 @@ struct ListView: View {
                 }
                 .padding(20)
                 
-                List(todoItems) { currentItem in
+                List(todoItems.results) { currentItem in
                     
                     Label(title: {
                         Text(currentItem.description)
