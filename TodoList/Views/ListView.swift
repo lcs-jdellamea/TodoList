@@ -84,5 +84,7 @@ struct ListView: View {
     struct ListView_Previews: PreviewProvider {
         static var previews: some View {
             ListView()
+//            // Make the database available to all other views through the environment
+//                .environment(\.blackbirdDatabase, AppDatabase.instance)
     }
 }
