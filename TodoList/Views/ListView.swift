@@ -30,7 +30,7 @@ struct ListView: View {
                 
                 HStack {
                     
-                    TextField("Enter a to-do item", text: Binding.constant(""))
+                    TextField("Enter a to-do item", text: $newItemDescription)
                     
                     Button(action: {
                         Task {
@@ -61,7 +61,17 @@ struct ListView: View {
                     } else {
                         Image(systemName: "circle")
                     }
-                          } )
+                } )
+                    .onTapGesture {
+                        Task {
+                            try await db!.transaction { core in
+                                // Change the status for this person to the opposite of its current value
+                                try core.query("UPDATE TodoItem SET completed = (?) WHERE id = (?)",
+                                !currentItem.completed,
+                                currentItem.id)
+                            }
+                        }
+                    }
                     
                 }
                 
