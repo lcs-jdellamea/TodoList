@@ -83,6 +83,7 @@ struct ListView: View {
         .navigationTitle("To do")
 }
     
+    print("hello world")
     
     struct ListView_Previews: PreviewProvider {
         static var previews: some View {
