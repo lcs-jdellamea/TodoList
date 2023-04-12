@@ -24,6 +24,16 @@ struct ListView: View {
     // MARK: Computed properties
     var body: some View {
         
+        //MARK: Function
+        func removeRows(at offsets: IndexSet) {
+            
+            // What item(s) were swiped
+            for offset in offets {
+                print(offset)
+            }
+        }
+    }
+        
         NavigationView {
             
             VStack {
@@ -76,6 +86,7 @@ struct ListView: View {
                         }
                         
                     }
+                    .onDelete(perform: removeRows)
                     
                 }
             }
