@@ -78,10 +78,11 @@ struct ListView: View {
                 }
                 
             }
-            .navigationTitle("To do")
         }
     }
+        .navigationTitle("To do")
 }
+    
     
     struct ListView_Previews: PreviewProvider {
         static var previews: some View {
