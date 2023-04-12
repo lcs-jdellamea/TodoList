@@ -44,7 +44,6 @@
 			isa = PBXGroup;
 			children = (
 				6F15048429DB56CC00E4864A /* TodoList */,
-				6F15048929DB56CF00E4864A /* Assets.xcassets */,
 				6F15048329DB56CC00E4864A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,10 +59,11 @@
 		6F15048429DB56CC00E4864A /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
-				6F15049C29DDAEA800E4864A /* Helpers */,
 				6F15048529DB56CC00E4864A /* TodoListApp.swift */,
-				6F15049429DB5E3E00E4864A /* Model */,
+				6F15049C29DDAEA800E4864A /* Helpers */,
 				6F15049329DB591C00E4864A /* Views */,
+				6F15049429DB5E3E00E4864A /* Model */,
+				6F15048929DB56CF00E4864A /* Assets.xcassets */,
 				6F15048B29DB56CF00E4864A /* Preview Content */,
 			);
 			path = TodoList;

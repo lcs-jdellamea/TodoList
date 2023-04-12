@@ -51,7 +51,9 @@ struct ListView: View {
                 }
                 .padding(20)
                 
-                List(todoItems.results) { currentItem in
+                List {
+                    
+                    ForEach(todoItems.results) {currentItem in
                     
                     Label(title: {
                         Text(currentItem.description)
